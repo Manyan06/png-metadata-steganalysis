@@ -10,7 +10,7 @@ The system constructs a **controlled dataset** by injecting encoded payloads int
 
 ---
 
-# Key Objectives
+## Key Objectives
 
 - Demonstrate how PNG metadata can be used to hide payloads
 - Build a **controlled experimental dataset** containing clean and stego images
@@ -20,7 +20,9 @@ The system constructs a **controlled dataset** by injecting encoded payloads int
 
 ---
 
-# Project Pipeline
+## Project Pipeline
+
+```
 Clean PNG Image
         │
         ▼
@@ -37,12 +39,13 @@ Metadata Feature Extraction
         │
         ▼
 Machine Learning Classification
-
+```
 
 ---
 
-# Dataset Structure
+## Dataset Structure
 
+```
 dataset/
 │
 ├── clean/
@@ -53,16 +56,17 @@ dataset/
 │
 └── stego_ztxt/
     └── clean_img_ztxt_injected.png
-
+```
 
 Dataset labels are stored in:
 
+```
 metadata/dataset_labels.csv
-
+```
 
 ---
 
-# Extracted Features
+## Extracted Features
 
 The classifier uses metadata-based statistical features such as:
 
@@ -76,22 +80,21 @@ These features capture **structural anomalies introduced by hidden payloads**.
 
 ---
 
-# Machine Learning Model
+## Machine Learning Model
 
 A **Logistic Regression classifier** is used for proof-of-concept detection.
 
-## Classification Task
-
+### Classification Task
 
 Clean PNG vs Stego PNG
-
 
 The classifier is trained on **metadata feature vectors extracted from each image**.
 
 ---
 
-# Repository Structure
+## Repository Structure
 
+```
 png-metadata-steganalysis/
 │
 ├── dataset/
@@ -121,62 +124,83 @@ png-metadata-steganalysis/
 │
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
-# Installation
+## Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/png-metadata-steganalysis.git
 cd png-metadata-steganalysis
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
-Running the Pipeline
-1️⃣ Extract Metadata Features
+---
+
+## Running the Pipeline
+
+### 1️⃣ Extract Metadata Features
+
+```bash
 python extract_metadata_features.py
+```
 
 This generates:
-metadata/features.csv
 
-2️⃣ Train the Classifier
+```
+metadata/features.csv
+```
+
+### 2️⃣ Train the Classifier
+
+```bash
 python train_classifier.py
+```
 
 The model evaluates whether an image is clean or contains hidden metadata payloads.
 
-Example Feature Output
+---
+
+## Example Feature Output
+
+```
 image_path,label,num_meta_keys,total_meta_len,avg_value_len,mean_entropy,mean_ascii_ratio
 clean/clean_img.png,clean,0,0,0,0,0
 stego_text/clean_img_text_injected.png,stego_text,1,264,264,3.62,0.5
 stego_ztxt/clean_img_ztxt_injected.png,stego_ztxt,1,13640,13640,3.68,0.5
+```
 
-# Limitations
+---
+
+## Limitations
 
 This project is intended as a research prototype and has several limitations:
 
-Small experimental dataset
+- Small experimental dataset
+- Only PNG metadata chunks analyzed
+- Only basic machine learning models tested
+- Real-world malware samples are not included
 
-Only PNG metadata chunks analyzed
+---
 
-Only basic machine learning models tested
+## Future Work
 
-Real-world malware samples are not included
+- Larger datasets
+- Additional metadata chunk types (iTXt)
+- Deep learning based anomaly detection
+- Integration into digital forensic tools
 
-# Future Work
+---
 
-Larger datasets
-
-Additional metadata chunk types (iTXt)
-
-Deep learning based anomaly detection
-
-Integration into digital forensic tools
-
-# Related Work
+## Related Work
 
 Research on steganography detection traditionally focuses on pixel-domain steganalysis, where hidden data modifies image statistics. However, metadata-based steganography remains a less explored attack surface.
 
@@ -186,10 +210,14 @@ This project explores a metadata-centric detection approach, using statistical f
 
 This project demonstrates the feasibility of metadata-based steganalysis using machine learning.
 
-# Author
+---
+
+## Author
 
 Project developed as part of research exploration in cybersecurity and steganalysis.
 
-# License
+---
+
+## License
 
 This project is released for educational and research purposes.
