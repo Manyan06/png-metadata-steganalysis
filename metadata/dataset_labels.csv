@@ -1,0 +1,4 @@
+image_path,label
+dataset/clean/clean_img.png,clean
+dataset/stego_text/clean_img_text_injected.png,stego_text
+dataset/stego_ztxt/clean_img_ztxt_injected.png,stego_ztxt

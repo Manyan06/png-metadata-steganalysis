@@ -1,0 +1,4 @@
+image_path,label,num_meta_keys,total_meta_len,avg_value_len,mean_entropy,mean_ascii_ratio
+clean/clean img.png,clean,0,0,0,0,0
+clean copy/clean_img_text_injected.png,stego_text,1,264,264.0,3.6199735642988173,0.5
+stego/ztxt/clean_img_ztxt_injected.png,stego_ztxt,1,13640,13640.0,3.6804927033277797,0.5
