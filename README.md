@@ -133,7 +133,7 @@ png-metadata-steganalysis/
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/png-metadata-steganalysis.git
+git clone https://github.com/Manyan06/png-metadata-steganalysis.git
 cd png-metadata-steganalysis
 ```
 
